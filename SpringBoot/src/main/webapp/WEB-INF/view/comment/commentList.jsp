@@ -6,13 +6,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>QNA 게시판</title>
+<title>댓글 게시판</title>
 </head>
 <body>
-
 <!-- 데이터가 있는경우 -->
-<c:if test="">
-<table width=50% border="0" cellpadding="0" cellspacing="0">
+<c:if test="${!empty lists }">
+<table width=50% border="0" cellpadding="0" cellspacing="0" align="center">
 	<tr align="center" valign="middle">
 		<td colspan="4">댓글 게시판</td>
 		<td align=right>
@@ -30,45 +29,43 @@
 		<td width="14%">
 			<div align="center">작성자</div>
 		</td>
-		<td width="17%">
+		<td width="20%">
 			<div align="center">날짜</div>
 		</td>
-		<td width="11%">
-			<div align="center">조회수</div>
-		</td>
+
 	</tr>
-<c:forEach items="" var="dto" varStatus="cnt">				
+<c:forEach items="${lists }" var="dto" varStatus="cnt">				
 	<tr align="center" valign="middle">
-		<td height="23"></td>	<!-- 1,2,3,.... -->
+		<td height="23">${dto.commentNo }</td>	<!-- 1,2,3,.... -->
 											<!-- index : 0,1,2,,, -->
-		<td><a href="boardDetail?num=">  </a></td>
-		<td></td>
-		<td></td>	
-		<td></td>
+		<td><a href="commentDetail?num=${dto.commentNo }">${dto.commentSubject }</a></td>
+		<td>${dto.cuserId }</td>
+		<td><fmt:formatDate value="${dto.regDate }" type="date" pattern="yyyy-MM-dd"/> </td>	
 	</tr>
 </c:forEach>
 
 	<tr align=center height=20>
 		<td colspan=7 style=font-family:Tahoma;font-size:10pt;>
-			<%@ include file = "../include/includePage.jsp"%>
+			<%-- <%@ include file = "../include/includePage.jsp"%> --%>
 		</td>
 	</tr>
 </c:if>
 <!-- 데이터가 있는경우 -->
 <!-- 데이터가 없는경우 -->
-<c:if test="">
+<c:if test="${empty lists }">
 	<tr align="center" valign="middle">
-		<td colspan="4">QNA 게시판</td>
+		<td colspan="4">댓글 게시판</td></tr>
+	<tr>	
 		<td align=right>
 			<font size=2>등록된 글이 없습니다.</font>
 		</td>
 	</tr>
+</c:if>
 <!-- 데이터가 없는 경우 -->
 
-</c:if >
 	<tr align="right">
 		<td colspan="5">
-	   		<a href="">[글쓰기]</a>
+	   		<a href="/comment/commentForm">[글쓰기]</a>
 		</td>
 	</tr>
 </table>
