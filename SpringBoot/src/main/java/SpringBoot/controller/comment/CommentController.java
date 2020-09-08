@@ -10,6 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import SpringBoot.command.CommentCommand;
 import SpringBoot.command.MemberCommand;
@@ -25,8 +26,8 @@ public class CommentController {
 	CommentWriteService commentWriteService;
 	
 	@RequestMapping(value="commentList", method = RequestMethod.GET)
-	public String commentList(Model model)throws Exception {	//페이지 필요
-		commentListService.commentList(model);
+	public String commentList(@RequestParam(value="page", defaultValue = "1")Integer page, Model model)throws Exception {	//페이지 필요
+		commentListService.commentList(page, model);
 		return "comment/commentList";
 	}
 	@RequestMapping(value="commentForm", method = RequestMethod.GET)
@@ -38,4 +39,11 @@ public class CommentController {
 		commentWriteService.commentWrite(commentCommand, session);
 		return "redirect:/comment/commentList";
 	}
+	//commentDetail?num=${dto.commentNo }
+	@RequestMapping(value="commentDetail", method = RequestMethod.GET)
+	public String commentDetail(@RequestParam(value="num")Long commentNo, Model model)throws Exception{
+		commentListService.commentDetail(commentNo, model);
+		return "thymeleaf/comment/comment_Collection";
+	}
+	
 }

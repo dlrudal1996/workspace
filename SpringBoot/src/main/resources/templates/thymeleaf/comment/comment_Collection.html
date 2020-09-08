@@ -9,9 +9,8 @@
 아이디 : <span th:text="${dto.cuserId}" ></span><br />
 글제목 : <span th:text="${dto.commentSubject}" ></span><br />
 글내용 : <span th:text="${dto.commentContent}" ></span><br />
-작성일 : <span th:text=
-"${#dates.format(dto.regDate, 'yyyy-MM-dd')}" ></span><br />
-<form th:action="@{/comment/replyInsert}" method="post" >
+작성일 : <span th:text="${#dates.format(dto.regDate, 'yyyy-MM-dd')}" ></span><br />
+<!-- <form th:action="@{/comment/replyInsert}" method="post" >
 <input type="hidden" name="cuserId" 
 						th:value="${dto.cuserId }" />
 <input type="hidden" name="commentNo" 
@@ -27,7 +26,7 @@
 답글내용 : <span th:text="${reply.replyContent }"></span><br />
 답글작성일시 : <span 
 		th:text="${#dates.format(reply.regDate, 'yyyy-MM-dd')}"></span>
-</span>
+</span> -->
 </p>	
 </div>
 </body>

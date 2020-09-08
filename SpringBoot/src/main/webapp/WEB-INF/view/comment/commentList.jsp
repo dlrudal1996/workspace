@@ -15,7 +15,7 @@
 	<tr align="center" valign="middle">
 		<td colspan="4">댓글 게시판</td>
 		<td align=right>
-			<font size=2>글 개수 :</font>
+			<font size=2>글 개수 :${count }</font>
 		</td>
 	</tr>
 	
@@ -36,7 +36,7 @@
 	</tr>
 <c:forEach items="${lists }" var="dto" varStatus="cnt">				
 	<tr align="center" valign="middle">
-		<td height="23">${dto.commentNo }</td>	<!-- 1,2,3,.... -->
+		<td height="23">${cnt.count }</td>	<!-- 1,2,3,.... -->
 											<!-- index : 0,1,2,,, -->
 		<td><a href="commentDetail?num=${dto.commentNo }">${dto.commentSubject }</a></td>
 		<td>${dto.cuserId }</td>
@@ -46,7 +46,7 @@
 
 	<tr align=center height=20>
 		<td colspan=7 style=font-family:Tahoma;font-size:10pt;>
-			<%-- <%@ include file = "../include/includePage.jsp"%> --%>
+			<%@ include file = "../include/includePage.jsp" %>
 		</td>
 	</tr>
 </c:if>

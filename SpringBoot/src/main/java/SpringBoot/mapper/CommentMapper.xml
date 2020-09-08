@@ -18,12 +18,34 @@
 	<result column="comment_content" jdbcType="VARCHAR" property="commentContent"/>
 </resultMap>
 
-<select id="selectByComment" parameterType="SpringBoot.domain.CommentDTO" resultMap="CommentResultMap" >
-select <include refid="baseCommentColumn" /> from comment1
+<select id="selectByComment" parameterType="SpringBoot.domain.StartEndPageDTO" resultMap="CommentResultMap" >
+	select rn, <include refid="baseCommentColumn" />
+		from (select rownum rn, <include refid="baseColumn" />
+			 from ( select <include refid="baseColumn" />
+					from comment1
+					<trim prefix="where" prefixOverrides="AND | OR">
+						<if test="userId != null ">
+							and cuser_id = #{cuserId}
+						</if>
+						<if test="num != null ">
+							and comment_no = #{num}
+						</if>
+					</trim>
+					order by reg_date desc))
+		where rn &gt;= #{startPage} and rn &lt;= #{endPage}
 </select>
 
 <insert id="insertComment" parameterType="SpringBoot.domain.CommentDTO">
 insert into comment1(<include refid="baseColumn" />)
 values(num_seq.nextval,#{cuserId},#{commentSubject},#{commentContent}, sysdate)
 </insert>
+
+<select id="commentCount" resultType="int">
+ 	select count(*) from comment1	
+</select>
+
+<!-- <select id="commentReplies" resultType="SpringBoot.domain.CommentDTO">
+	select
+</select> -->
+
 </mapper>
