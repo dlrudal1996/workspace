@@ -4,13 +4,16 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import SpringBoot.command.LibraryBoardCommand;
+import SpringBoot.service.libBoard.LibBoardListService;
 import SpringBoot.service.libBoard.LibBoardService;
 
 @Controller
@@ -18,6 +21,8 @@ import SpringBoot.service.libBoard.LibBoardService;
 public class LibraryController {
 	@Autowired
 	LibBoardService libBoardService;
+	@Autowired
+	LibBoardListService libBoardListService;
 	
 	@ModelAttribute
 	LibraryBoardCommand setLibraryBoardCommand() {
@@ -25,7 +30,8 @@ public class LibraryController {
 	}
 	
 	@RequestMapping(value="libBoardList")
-	public String libBoardList() {
+	public String libBoardList(@RequestParam(value="page", defaultValue = "1")Integer page, Model model)throws Exception {
+		libBoardListService.libBoardList(page, model);
 		return "lib_board/libBoardList";
 	}
 	
@@ -43,5 +49,6 @@ public class LibraryController {
 		String location = libBoardService.writePro(libraryBoardCommand, request);
 		return location;
 	}
+	
 
 }

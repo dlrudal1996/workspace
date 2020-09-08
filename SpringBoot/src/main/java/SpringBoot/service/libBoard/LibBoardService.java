@@ -37,15 +37,12 @@ public class LibBoardService {
 		dto.setIpAddr(request.getRemoteAddr());
 		
 		// 파일 정보를 입력하기 위한 변수
-
 		String originalTotal = "";
 		String storeTotal = "";
 		String fileSizeTotal ="";
 		String PATH = "/static/lib_board/upload";
 		String filePath = request.getServletContext().getRealPath(PATH);
 		
-		System.out.println("LibBoardService : " + filePath); //../src/main/webapp/WEB-INF/view/static/lib_Board/upload
-
 		for(MultipartFile mf : libraryBoardCommand.getReport()) {
 			String original = mf.getOriginalFilename(); // 전송된 파일명
 			String originalFileExtension = // 전송된 파일명으로 부터 확장자만 자라옴
@@ -67,7 +64,6 @@ public class LibBoardService {
 		dto.setOriginalFileName(originalTotal);
 		dto.setStoreFileName(storeTotal);
 		dto.setFileSize(fileSizeTotal);
-		// DB 전
 		libBoardMapper.libraryInsert(dto);
 		location = "redirect:/lib/libBoardList";
 		return location;

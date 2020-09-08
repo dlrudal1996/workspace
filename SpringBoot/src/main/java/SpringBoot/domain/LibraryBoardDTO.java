@@ -18,7 +18,6 @@ public class LibraryBoardDTO {
 	String boardContent;
 	Timestamp boardDate;
 	String ipAddr;
-	
 	Integer readCount;
 	String originalFileName;
 	String storeFileName;

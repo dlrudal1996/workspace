@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- <%@ include file="../include/include.jsp" %> --%>
+<%@ include file="../include/include.jsp" %>
 
 <!DOCTYPE html>
 <html>
@@ -10,12 +10,12 @@
 </head>
 <body>
 <!-- 데이터가 있는경우 -->
-<%-- <c:if test="${!empty lists }"> --%>
+<c:if test="${!empty lists }">
 <table width=50% border="0" cellpadding="0" cellspacing="0" align="center">
 	<tr align="center" valign="middle">
 		<td colspan="4">댓글 게시판</td>
 		<td align=right>
-			<font size=2>글 개수 :</font>
+			<font size=2>글 개수 :${count }</font>
 		</td>
 	</tr>
 	
@@ -29,30 +29,34 @@
 		<td width="14%">
 			<div align="center">작성자</div>
 		</td>
-		<td width="20%">
+		<td width="17%">
 			<div align="center">날짜</div>
+		</td>
+		<td width="11%">
+			<div align="center">조회수</div>
 		</td>
 
 	</tr>
-<%-- <c:forEach items="${lists }" var="dto" varStatus="cnt">		 --%>		
+<c:forEach items="${lists }" var="dto" varStatus="cnt">	
 	<tr align="center" valign="middle">
-		<td height="23"></td>	<!-- 1,2,3,.... -->
+		<td height="23">${cnt.count }</td>	<!-- 1,2,3,.... -->
 											<!-- index : 0,1,2,,, -->
-		<td><a href="commentDetail?num="></a></td>
-		<td></td>
-		<td><fmt:formatDate value="" type="date" pattern="yyyy-MM-dd"/> </td>	
+		<td><a href="libBoardDetail/${dto.boardNum }">${dto.boardSubject }</a></td>
+		<td>${dto.boardName }</td>
+		<td><fmt:formatDate value="${dto.boardDate }" type="date" pattern="yyyy-MM-dd"/> </td>	
+		<td >${dto.readCount }</td>
 	</tr>
-<%-- </c:forEach> --%>
+</c:forEach> 
 
 	<tr align=center height=20>
 		<td colspan=7 style=font-family:Tahoma;font-size:10pt;>
-			<%-- <%@ include file = "../include/includePage.jsp"%> --%>
+			<%@ include file = "../include/includePage.jsp"%>
 		</td>
 	</tr>
-<%-- </c:if> --%>
+</c:if>
 <!-- 데이터가 있는경우 -->
 <!-- 데이터가 없는경우 -->
-<%-- <c:if test="${empty lists }"> --%>
+<c:if test="${empty lists }"> 
 	<tr align="center" valign="middle">
 		<td colspan="4">댓글 게시판</td></tr>
 	<tr>	
@@ -60,7 +64,7 @@
 			<font size=2>등록된 글이 없습니다.</font>
 		</td>
 	</tr>
-<%-- </c:if> --%>
+</c:if>
 <!-- 데이터가 없는 경우 -->
 
 	<tr align="right">
