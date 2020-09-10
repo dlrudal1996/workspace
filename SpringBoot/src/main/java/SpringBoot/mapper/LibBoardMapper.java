@@ -14,4 +14,5 @@ public interface LibBoardMapper {
 	public void libraryInsert(LibraryBoardDTO dto) throws Exception;
 	public List<LibraryBoardDTO> getLibBoardList(StartEndPageDTO startEndPageDTO)throws Exception;
 	public Integer getLibraryCount() throws Exception;
+	public Integer libBoardDetail(StartEndPageDTO startEndPageDTO) throws Exception;
 }

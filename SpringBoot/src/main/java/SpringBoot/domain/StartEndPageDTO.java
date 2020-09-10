@@ -17,5 +17,4 @@ public class StartEndPageDTO {
 		this.startPage = startPage;
 		this.endPage = endPage;
 	}
-	
 }	

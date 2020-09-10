@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,12 +22,15 @@ import SpringBoot.mapper.LibBoardMapper;
 public class LibBoardService {
 	@Autowired
 	LibBoardMapper libBoardMapper;
+	@Autowired
+	PasswordEncoder passwordEncoder;
 	
 	public String writePro(LibraryBoardCommand libraryBoardCommand, HttpServletRequest request)throws Exception{
 		String location = "";
 		LibraryBoardDTO dto = new LibraryBoardDTO();
 		dto.setBoardName(libraryBoardCommand.getBoardName());
-		dto.setBoardPass(libraryBoardCommand.getBoardPass());
+		dto.setBoardPass(passwordEncoder.encode(libraryBoardCommand.getBoardPass()));
+//		dto.setBoardPass(libraryBoardCommand.getBoardPass());
 		dto.setBoardSubject(libraryBoardCommand.getBoardSubject());
 		dto.setBoardContent(libraryBoardCommand.getBoardContent());
 		

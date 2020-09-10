@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form method="post">
+<div th:each="q,status: ${questions} ">
+<!--  <c:forEach items="${questions}" var="q" varStatus="status">-->
+<p>
+	${status.count }번 문제 ) ${q.title } <br />
+	<div th:if="${q.choice }">
+	<!-- <c:if test="${q.choice }"> -->
+		<div th:each="option : ${q.options }">
+		<!-- <c:forEach items="${q.options }" var="option"> -->
+		<input type="radio" th:name="${'responses['+status.index+']'" th:value="${option }" />${option }
+		<!-- </c:forEach>-->
+		</div>
+	<!-- </c:if>  --->
+	</div>
+	<div th:if="${q.choice == null }">
+	<!-- <c:if test="${!q.choice }"> -->
+		<input type="text" th:name="${'responses[' + status.index + ']'">
+	<!-- </c:if> -->
+	</div>
+</p>	
+<!-- </c:forEach> -->
+</div>
+<p>
+<label>응답자 위치:<br>
+<input type="text" name="res.location">
+</label>
+</p>
+<p>
+<label>응답자 나이:<br>
+<input type="text" name="res.age">
+</label>
+</p>
+<input type="submit" value="전송">
+</form>
+</body>
+</html>
