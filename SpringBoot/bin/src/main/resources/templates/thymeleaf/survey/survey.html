@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form method="post" action="surveyOk">
+<div th:each="q,status: ${list} "> <!-- 문제 수만큼  반복  -->
+<p>
+	[[${status.count }]]번 문제 ) [[${q.question.questionTitle }]] <br />
+	<span th:each = "option : ${q.options}" > <!-- 문항수 만큼 반복 -->
+		<span th:if="${option.optionName != null}" >
+			<input type="radio"  th:name="${'responses['+ status.index +']'}" />
+			[[${option.optionName}]]
+		</span>
+		<span th:if="${option.optionName == null}" >
+			<input type="text" th:name="${'responses['+ status.index +']'}" />
+		</span>
+	</span>
+</p>	
+</div>
+<p>
+<label>응답자 위치:<br>
+<input type="text" name="res.location">
+</label>
+</p>
+<p>
+<label>응답자 나이:<br>
+<input type="text" name="res.age">
+</label>
+</p>
+<input type="submit" value="전송">
+</form>
+</body>
+</html>

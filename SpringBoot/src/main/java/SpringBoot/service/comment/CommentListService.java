@@ -35,14 +35,12 @@ public class CommentListService {
 		model.addAttribute("lists", lists);
 		PageAction pageAction = new PageAction();
 		pageAction.page(model, count, limit, limitPage, page, "commentList?");
-		
-		
 	}
 
 	public String commentDetail(Long commentNo, Model model)throws Exception {
 		CommentDTO dto = new CommentDTO();
 		dto.setCommentNo(commentNo);
-//		dto = commentMapper.commentDetail(dto);
+		dto = commentMapper.commentDetail(dto).get(0);
 		model.addAttribute("dto",dto);
 		return "thymeleaf/comment/comment_Collection";
 	}

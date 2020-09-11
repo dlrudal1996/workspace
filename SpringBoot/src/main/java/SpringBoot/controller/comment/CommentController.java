@@ -45,5 +45,5 @@ public class CommentController {
 		commentListService.commentDetail(commentNo, model);
 		return "thymeleaf/comment/comment_Collection";
 	}
-	
+
 }

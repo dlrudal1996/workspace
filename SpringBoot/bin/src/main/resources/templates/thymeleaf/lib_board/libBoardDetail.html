@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0">
+	<tr align="center" valign="middle">
+		<td colspan="5">QNA 게시판</td>
+	</tr>
+	
+	<tr>
+		<td height="16">제 목&nbsp;&nbsp;</td>
+		<td >[[${dto.boardSubject }]]</span></td>
+	</tr>
+	<tr bgcolor="cccccc">
+		<td colspan="2" style="height:1px;">
+		</td>
+	</tr>
+	<tr>
+		<td >내 용</td>
+		<td >
+			<table border=0 width=490 height=250 >
+				<tr>
+					<td valign=top>
+									<!-- string 이라는 객체를 이용하여 boardContent의 내용에서 			 \을 				br태그로 바꿔준다 -->
+					<span th:utext="${#strings.replace(dto.boardContent, T(System).getProperty('line.separator'), '&lt;br /&gt;')}"></span>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<!--  https://m.blog.naver.com/PostView.nhn?blogId=specialnks&logNo=221313625420&proxyReferer=https:%2F%2Fwww.google.com%2F -->
+	<tr>
+		<td>파일</td>
+		<td>
+		<!-- FileName : List<FileName> -->
+		<div th:each="file :  ${fileList}" >
+		
+		<!-- pathValiable방식 -->
+		<!-- <a th:href="@{/lib/fileDown/{file}(file=${file.storeFileName+'`'+file.originalfileName})}" >[[${file.originalfileName }]] -->
+		<!-- <a href="/libBoard/fileDown?${file.storeFileName}"/> -->
+
+		<!-- 파일을 다운로드하기위한 링 -->
+		<!-- <a href = "/libBoard/${file.storeFileName}">파일 다운로드</a> -->
+		<!-- html에서는 EL(@{})을 사용할 수 없다 -->
+		<!-- <a th:href = "@{/libBoard/fileDown/${file.storeFileName}"> -->
+		
+		<a href="/libraryBoard/fileDown?${file.storeFileName}"/>
+		<!-- pathValiable방식이기 때문에 ?는 줄 수 없고 무조건 /로 처리해야한다. {file은 변수 1개}  {file,aaa 변수가 두개      => file.originalfileName,aaa} } -->
+		<a th:href="@{/libraryBoard/fileDown/{file}(file=${file.storeFileName+'`'+file.originalfileName})}" >
+			[[${file.originalfileName }]]</a> &nbsp;&nbsp; / &nbsp;&nbsp;[[${file.fileSize }]]Byte
+		</div>
+		</td>	
+			
+	</tr>
+	<tr bgcolor="cccccc">
+		<td colspan="2" style="height:1px;"></td>
+	</tr>
+	<tr><td colspan="2">&nbsp;</td></tr>
+	
+	<tr align="center" valign="middle">
+		<td colspan="5">
+			<font size=2>
+			<a th:href="@{/libraryBoard/libBoardModify(boardNum=${dto.boardNum}) }">
+			[수정]
+			</a>&nbsp;&nbsp;
+			<a th:href="@{/libraryBoard/libBoardDel(boardNum=${dto.boardNum}) }">
+			[삭제]
+			</a>&nbsp;&nbsp;
+			<a th:href="@{/libraryBoard/library}">[목록]</a>&nbsp;&nbsp;
+			</font>
+		</td>
+	</tr>
+</table>
+<!-- <img th:src="@{/static/images/img1.jpg}"> -->
+</body>
+</html>

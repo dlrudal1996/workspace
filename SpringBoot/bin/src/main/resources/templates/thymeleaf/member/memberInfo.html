@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.8.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	userId = '[[${memberCommand.userId }]]';			//가상주소에 userId가 포함되므로 userId도 출력 ${memberCommand.userId}와 같은 형식이다. 
+	$("#modify").click(function(){
+		location.href="../memberModify?userId="+userId;	//userId만 가져오면 되므로 이렇게 작성하면 
+														// 출력 => http://localhost:9090/edit/memberModify?userId=dlrudal96
+	});
+	$("#memDel").click(function(){
+		location.href="../memberInfoDel/"+userId;		// 출력 => http://localhost:9090/edit/memberInfoDel/dlrudal96 
+	});
+});
+</script>
+</head>
+<body>
+이름 : <span th:text="${memberCommand.userName }"></span><br />
+아이디 : <span th:text="${memberCommand.userId }"></span><br />
+이메일  :<span th:text="${memberCommand.userEmail }"></span><br />
+생년월일  : <span th:text="${#dates.format(memberCommand.userBirth,'yyyy-MM-dd')}" ></span><br />
+<!-- 
+model.addAttribute("standardDate", new Date()); service에 있는 코드	
+<p th:text="${#dates.formatISO(standardDate)}"></p>
+<p th:text="${#dates.format(standardDate, 'dd-MM-yyyy HH:mm')}"></p>
+
+model.addAttribute("localDateTime", LocalDateTime.now());
+<p th:text="${#temporals.formatISO(localDateTime)}"></p>
+<p th:text="${#temporals.format(localDateTime, 'dd-MM-yyyy HH:mm')}"></p>
+
+model.addAttribute("localDate", LocalDate.now());
+<p th:text="${#temporals.formatISO(localDate)}"></p>
+<p th:text="${#temporals.format(localDate, 'MM-yyyy')}"></p>
+
+model.addAttribute("timestamp", Instant.now());
+<p th:text="${#temporals.formatISO(timestamp)}"></p>
+ -->
+성별 : <span th:if="${memberCommand.userGender == 'M'}">남자<br /></span>
+	 <span th:if="${memberCommand.userGender == 'F'}">여자<br /></span>	
+연락처 1 : <span th:text="${memberCommand.userPh1 }"></span><br />
+연락처 2 : <span th:text="${memberCommand.userPh2 }"></span><br />
+등록일 : <span th:text="${#dates.format(memberCommand.userRegist,'yyyy-MM-dd')}"></span><br />
+주소  : <span th:text="${memberCommand.userAddr }"></span><br />
+<input type="button" name="modify" id ="modify" value="수   정" >
+<input type="button" value="취  소" onclick = "javascript:history.back();" />
+<input type="button" value="회원삭제" id ="memDel"/>
+</body>
+</html>

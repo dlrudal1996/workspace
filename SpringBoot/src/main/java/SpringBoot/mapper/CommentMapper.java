@@ -12,7 +12,7 @@ import SpringBoot.domain.StartEndPageDTO;
 @Repository(value="SpringBoot.mapper.CommentMapper")
 public interface CommentMapper {
 	public List<CommentDTO> selectByComment(StartEndPageDTO startEndPageDTO)throws Exception;
-	public Integer insertComment(CommentDTO commentDTO)throws Exception;
 	public Integer commentCount()throws Exception;
+	public Integer insertComment(CommentDTO commentDTO)throws Exception;
 	public List<CommentDTO> commentDetail(CommentDTO dto)throws Exception;
 }
