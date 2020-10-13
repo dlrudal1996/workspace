@@ -41,9 +41,19 @@ public class CommentController {
 	}
 	//commentDetail?num=${dto.commentNo }
 	@RequestMapping(value="commentDetail", method = RequestMethod.GET)
-	public String commentDetail(@RequestParam(value="num")Long commentNo, Model model)throws Exception{
-		commentListService.commentDetail(commentNo, model);
-		return "thymeleaf/comment/comment_Collection";
+	public String commentDetail(@RequestParam(value="commentNo")Long commentNo, Model model)throws Exception{
+		String path = commentListService.commentDetail(commentNo, model);
+		return path;
 	}
-
+	//@{/comment/replyInsert}
+	@RequestMapping(value="replyInsert", method = RequestMethod.POST)
+	public String replyInsert(@RequestParam(value="commentNo")Long commentNo,
+							  @RequestParam(value="cuserId")String cuserId, 
+							  @RequestParam(value="replyContent")String replyContent,
+							  HttpSession session)throws Exception {
+		commentWriteService.replyInsert(commentNo, cuserId, replyContent, session);
+//		System.out.println(replyContent);
+		return "redirect:/comment/commentDetail?commentNo="+commentNo;
+	}
+	
 }

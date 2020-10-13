@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import SpringBoot.command.AuthInfo;
 import SpringBoot.command.CommentCommand;
 import SpringBoot.domain.CommentDTO;
+import SpringBoot.domain.ReplyDTO;
 import SpringBoot.mapper.CommentMapper;
 
 @Service
@@ -30,5 +31,15 @@ public class CommentWriteService {
 //				commentCommand.getCommentSubject(),
 //				commentCommand.getCommentContent());
 		commentMapper.insertComment(commentDTO);
+	}
+
+	public void replyInsert(Long commentNo, String cuserId, String replyContent, HttpSession session)throws Exception {
+		String userId = ((AuthInfo)session.getAttribute("authInfo")).getUserId();
+		ReplyDTO replyDTO = new ReplyDTO();
+		replyDTO.setCommentNo(commentNo);
+		replyDTO.setCuserId(cuserId);
+		replyDTO.setReplyContent(replyContent);
+		replyDTO.setRuserId(userId);
+		commentMapper.insertReply(replyDTO);
 	}
 }

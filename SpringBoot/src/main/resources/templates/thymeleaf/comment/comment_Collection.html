@@ -5,22 +5,22 @@
 <title>comment_Collection.html</title>
 </head>
 <body>
-	글번호 : [[${dto.commentNo}]]<br />
-	아이디 : <span th:text="${dto.cuserId}" ></span><br />
-	글제목 : <span th:text="${dto.commentSubject}" ></span><br />
-	글내용 : <span th:text="${dto.commentContent}" ></span><br />
-	작성일 : <span th:text="${#dates.format(dto.regDate, 'yyyy-MM-dd')}" ></span><br />
+	글번호 : [[${replies.commentDTO.commentNo}]]<br />
+	아이디 : <span th:text="${replies.cuserId}" ></span><br />
+	글제목 : <span th:text="${replies.commentSubject}" ></span><br />
+	글내용 : <span th:text="${replies.commentContent}" ></span><br />
+	작성일 : <span th:text="${#dates.format(replies.regDate, 'yyyy-MM-dd')}" ></span><br />
 
 <form th:action="@{/comment/replyInsert}" method="post" >
-	<input type="hidden" name="cuserId" th:value="${dto.cuserId }" />
-	<input type="hidden" name="commentNo" th:value="${dto.commentNo }"/>
-	댓글쓰기 : <input type = "text" name=""/><!-- replyContent -->
+	<input type="hidden" name="cuserId" th:value="${replies.cuserId }" />
+	<input type="hidden" name="commentNo" th:value="${replies.commentNo }"/>
+	댓글쓰기 : <input type = "text" name="replyContent"/><!-- replyContent -->
 	<input type="submit" value="댓글 달기" />
 </form>
 
 <p>
-<!-- 
-<div th:each = "reply : ${dto.replies}">
+
+<div th:each = "reply : ${replies.replies}">
 	<span th:if="${reply.replyNo != null}">
 		답글번호 : <span th:text="${reply.replyNo }"></span><br />
 		답글작성자 : <span th:text="${reply.ruserId }"></span><br />
@@ -28,7 +28,7 @@
 		답글작성일시 : <span th:text="${#dates.format(reply.regDate, 'yyyy-MM-dd')}"></span>
 	</span>
 </div> 
--->
+
 </p>
 </body>
 </html>

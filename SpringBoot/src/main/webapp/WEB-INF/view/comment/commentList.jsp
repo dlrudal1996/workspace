@@ -38,7 +38,7 @@
 	<tr align="center" valign="middle">
 		<td height="23">${cnt.count }</td>	<!-- 1,2,3,.... -->
 											<!-- index : 0,1,2,,, -->
-		<td><a href="commentDetail?num=${dto.commentNo }">${dto.commentSubject }</a></td>
+		<td><a href="commentDetail?commentNo=${dto.commentNo }">${dto.commentSubject }</a></td>
 		<td>${dto.cuserId }</td>
 		<td><fmt:formatDate value="${dto.regDate }" type="date" pattern="yyyy-MM-dd"/> </td>	
 	</tr>

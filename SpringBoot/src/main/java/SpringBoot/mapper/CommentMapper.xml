@@ -50,6 +50,42 @@ values(num_seq.nextval,#{cuserId},#{commentSubject},#{commentContent}, sysdate)
 	where comment_no=#{commentNo}
 </select>
 
+<insert id="insertReply" parameterType="SpringBoot.domain.ReplyDTO">
+insert into reply(reply_no,ruser_id, comment_no, cuser_id, reply_content, reg_Date)
+values(num_seq.nextval, #{ruserId}, #{commentNo}, #{cuserId}, #{replyContent}, sysdate)
+</insert>
 
+<resultMap type="SpringBoot.domain.ReplyDTO" id="replyBaseMap">
+<id column="comment_no" jdbcType="BIGINT" property="commentNo"/>
+<id column="cuser_id" jdbcType="VARCHAR" property="cuserId"/>
+<id column="reply_no" jdbcType="BIGINT" property="replyNo"/>
+<id column="ruser_id" jdbcType="VARCHAR" property="ruserId"/>
+<result column="reply_content" jdbcType="VARCHAR" property="replyContent"/>
+<result column="RREG_DATE" jdbcType="TIMESTAMP" property="regDate"/>
+</resultMap>
 
+<!-- 마이바티스 모든 버전에서 지원 -->
+<resultMap type="SpringBoot.domain.CommentDTO" id="CommentReplystMap">
+	<id column="comment_no" jdbcType="BIGINT" property="commentNo"/>
+	<id column="cuser_id" jdbcType="VARCHAR" property="cuserId"/>
+	<result column="CREG_DATE" jdbcType="TIMESTAMP" property="regDate"/>
+	<result column="comment_subject" jdbcType="VARCHAR" property="commentSubject"/>
+	<result column="comment_content" jdbcType="VARCHAR" property="commentContent"/>
+	<collection property="replies" ofType="SpringBoot.domain.ReplyDTO" resultMap="replyBaseMap"/>
+</resultMap>
+
+<!-- 마이바티스 3.2.8에서 지원 mybatis-spring 1.3.0 -->
+<resultMap type="SpringBoot.domain.CommentRepliesDTO" id="collectionResultMap">
+	<association property="commentDTO" javaType="SpringBoot.domain.CommentDTO" resultMap="CommentResultMap" />
+	<collection property="replies" ofType="SpringBoot.domain.ReplyDTO" resultMap="replyBaseMap" />
+</resultMap>
+<select id="commentReplies" parameterType="long" resultMap="collectionResultMap">
+	select 
+		c.COMMENT_NO,c.CUSER_ID,COMMENT_SUBJECT,COMMENT_CONTENT,
+		c.REG_DATE CREG_DATE,
+	    reply_no, ruser_id, reply_content, r.reg_Date RREG_DATE
+	from comment1 c left outer join reply r
+	on c.comment_no = r.comment_no
+	where c.comment_no = #{commentNo}
+</select>
 </mapper>

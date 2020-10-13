@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import SpringBoot.command.CommentCommand;
 import SpringBoot.controller.PageAction;
 import SpringBoot.domain.CommentDTO;
+import SpringBoot.domain.CommentRepliesDTO;
 import SpringBoot.domain.LibraryBoardDTO;
 import SpringBoot.domain.StartEndPageDTO;
 import SpringBoot.mapper.CommentMapper;
@@ -38,10 +39,14 @@ public class CommentListService {
 	}
 
 	public String commentDetail(Long commentNo, Model model)throws Exception {
-		CommentDTO dto = new CommentDTO();
-		dto.setCommentNo(commentNo);
-		dto = commentMapper.commentDetail(dto).get(0);
-		model.addAttribute("dto",dto);
+//		CommentDTO dto = new CommentDTO();
+//		dto.setCommentNo(commentNo);
+//		dto = commentMapper.commentDetail(dto).get(0);
+//		model.addAttribute("dto",dto);
+//		return "thymeleaf/comment/comment_Collection";
+		
+		CommentRepliesDTO replies = commentMapper.commentReplies(commentNo);
+		model.addAttribute("replies", replies);
 		return "thymeleaf/comment/comment_Collection";
 	}
 

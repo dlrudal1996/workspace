@@ -1,0 +1,178 @@
+<ul class="bottomMenu">
+    <li class="foot"><a href="/mv.dp/dmparse.dm?menuCd=6560000">회사소개</a></li>
+    <li class="foot"><a href="/mv.dp/dmparse.dm?menuCd=6581100">뉴스룸</a></li>
+    <li class="foot"><a href="https://recruit.daemyung.com/recruit/info.asp">인재채용</a></li>
+    <li class="foot"><a href="/mv.dp/dmparse.dm?menuCd=6563001">제휴문의</a></li>
+    <li class="foot"><a href="#none" onclick="fnMovePage('9100200')">웹진</a></li>
+    <li class="foot"><a onclick="privacy_popup();return false;" class="policy">개인정보처리방침</a></li>
+    <li class="foot"><a onclick="imageInformation_popup();return false;" class="policy">영상정보처리기기운영관리방침</a></li>
+    <li class="foot"><a onclick="promise_popup();return false;">이용약관</a></li>
+    <li class="foot"><a href="http://as82.kr/dm/" target="_blank">원격지원</a></li>
+    <li class="family familySite_main">
+    	<ul class="sns">
+        	<li><!-- <a href="https://www.facebook.com/pg/daemyungfamily/posts/?ref=page_internal" target="_blank" title="facebook"> -->
+        		<a href="https://www.facebook.com/sonohotelsresorts/" target="_blank" title="facebook">
+				<img src="/img/front/common/layout/btn_side_facebook_new.png" alt="페이스북"></a></li>
+			<li><!-- <a href="https://www.instagram.com/daemyungresort/" target="_blank" title="instagram"> -->
+				<a href="https://www.instagram.com/sonohotels/" target="_blank" title="instagram">
+				<img src="/img/front/common/layout/btn_side_instagram.png" alt="인스타그램"></a></li>
+			<li><a href="https://www.youtube.com/user/daemyungofficial/" target="_blank" title="youtube">
+				<img src="/img/front/common/layout/btn_side_youtube.png" alt="유투브"></a></li>
+			<li><a href="http://blog.daemyungresort.com/" target="_blank" title="blog">
+				<img src="/img/front/common/layout/btn_side_blog.png" alt="네이버블로그"></a></li>				
+			<li><a href="http://post.naver.com/daemyung_mkt" target="_blank" title="naverpost">
+				<img src="/img/front/common/layout/btn_side_naverpost.png" alt="네이버포스트"></a></li>
+			<li><a href="https://pf.kakao.com/_xdUxcqE#none" target="_blank" title="kakaoplus">
+				<img src="/img/front/common/layout/btn_side_kakaoplus.png" alt="카카오플러스"></a></li>
+        </ul>
+        <p class="select openlayer" style="height: 60px;"></p>
+		<div class="box" style="display:none;">
+			<div class="inner">
+				<h3><img src="/img/front/common/layout/stit_familysite.gif" alt="family site - 소노호텔&amp;리조트의 패밀리사이트입니다."></h3>
+				<div class="flist">
+					<div class="liner">
+						<ul>
+							<li>
+								<a href="#none" class="fm on">대명소노그룹</a>
+								<div class="view" style="display:block;">
+									<span class="thum"><img src="/img/front/common/layout/img_family.gif" alt=""></span>
+									<dl>
+										<dt>대명소노그룹</dt>
+										<dd>모든 고객에게 열정과 헌신으로 행복과 즐거움을 선사하여 삶의 가치를 증대시키기 위해 끊임없이 노력하는 기업</dd>
+										<dd><a href="//www.daemyung.com/" target="blank"><img src="/img/front/common/layout/btn_fms_go.gif" alt="사이트 바로가기"></a></dd>
+									</dl>
+								</div>
+							</li>
+							<li>
+								<a href="#none" class="fm">대명윤리경영</a>
+								<div class="view">
+									<span class="thum"><img src="/img/front/common/layout/img_dm_ethics.jpg" alt=""></span>
+									<dl>
+										<dt>대명윤리경영</dt>
+										<dd>“건전한 기업만이 살아남는다” 는 창업정신의 계승을 통해 사회로부터 존경받고 신뢰받는 기업이 되겠습니다.</dd>
+										<dd><a href="//www.daemyung.co.kr/ethics/" target="blank"><img src="/img/front/common/layout/btn_fms_go.gif" alt="사이트 바로가기"></a></dd>
+									</dl>
+								</div>
+							</li>
+							<li>
+								<a href="#none" class="fm">대명골프클럽</a>
+								<div class="view">
+									<span class="thum"><img src="/img/front/common/layout/img_dgolfClubcc.gif" alt=""></span>
+									<dl>
+										<dt>대명골프클럽</dt>
+										<dd>비발디파크CC, 소노펠리체CC, 델피노CC, 비발디9GC 63홀 하나되어  D카드로 더 큰 혜택을 누릴 수 있는 대명골프클럽</dd>
+										<dd><a href="http://www.dgolfclub.com" target="blank"><img src="/img/front/common/layout/btn_fms_go.gif" alt="사이트 바로가기"></a></dd>
+									</dl>
+								</div>
+							</li>
+							<li>
+								<a href="#none" class="fm">승마클럽</a>
+								<div class="view">
+									<span class="thum"><img src="/img/front/common/layout/img_horse.gif" alt=""></span>
+									<dl>
+										<dt>소노펠리체 승마클럽</dt>
+										<dd>울타리를 벗어나 자연 속에서 자유로운 승마를 즐깁니다.</dd>
+										<dd><a href="http://www.sonofeliceeclub.com" target="blank"><img src="/img/front/common/layout/btn_fms_go.gif" alt="사이트 바로가기"></a></dd>
+									</dl>
+								</div>
+							</li>
+							<!-- <li>
+								<a href="#none" class="fm">소노캄 고양|여수</a>
+								<div class="view">
+									<span class="thum"><img src="/img/front/common/layout/img_themvl.gif" alt=""/></span>
+									<dl>
+										<dt>소노캄 고양|여수</dt>
+										<dd>MOST VALUABLE LIFE<br />당신의 고귀한 삶의 훤하게 비추는 곳 호텔 소노캄 고양|여수</dd>
+										<dd><a href="http://www.mvlhotel.com/" target="blank"><img src="/img/front/common/layout/btn_fms_go.gif" alt="사이트 바로가기"/></a></dd>
+									</dl>
+								</div>
+							</li> -->
+							<li>
+								<a href="#none" class="fm">소노펠리체 컨벤션</a>
+								<div class="view">
+									<span class="thum"><img src="/img/front/common/layout/img_convention.gif" alt="소노펠리체 컨벤션 홈페이지"></span>
+									<dl>
+										<dt>소노펠리체 컨벤션</dt>
+										<dd>세상에 없던 명예로운 라이프스타일<br>가장 설레고 행복한 순간의 프리미엄 노블레스 웨딩 소노펠리체 컨벤션에서 경험할 수 있습니다.</dd>
+										<dd><a href="http://www.sonofeliceconvention.com/" target="blank" title="새창 이동"><img src="/img/front/common/layout/btn_fms_go.gif" alt="사이트 바로가기"></a></dd>
+									</dl>
+								</div>
+							</li>							
+						</ul>
+						<ul>
+							<li>
+								<a href="#none" class="fm">대명복지재단</a>
+								<div class="view">
+									<span class="thum"><img src="/img/front/common/layout/img_dm_welfare.jpg" alt=""></span>
+									<dl>
+										<dt>대명복지재단</dt>
+										<dd>밝고 따뜻한 사회, 꿈과 희망이 있는 사회.<br>아름다운 사회를 꿈꾸는 사람들, 대명복지재단이 희망하는 미래입니다.</dd>
+										<dd><a href="http://www.daemyungwelfare.org/" target="blank"><img src="/img/front/common/layout/btn_fms_go.gif" alt="사이트 바로가기"></a></dd>
+									</dl>
+								</div>
+							</li>						
+							<li>
+								<a href="#none" class="fm">대명건설</a>
+								<div class="view">
+									<span class="thum"><img src="/img/front/common/layout/img_dm_const.jpg" alt=""></span>
+									<dl>
+										<dt>대명건설</dt>
+										<dd>21C 미래 건설문화의 꿈과 희망을 만들어 나가는 여러분의 가장 믿음직한 파트너.</dd>
+										<dd><a href="//www.daemyungcon.co.kr" target="blank"><img src="/img/front/common/layout/btn_fms_go.gif" alt="사이트 바로가기"></a></dd>
+									</dl>
+								</div>
+							</li>
+							<li>
+								<a href="#none" class="fm">대명아임레디</a>
+								<div class="view">
+									<span class="thum"><img src="/img/front/common/layout/img_dm_life.jpg" alt=""></span>
+									<dl>
+										<dt>대명아임레디</dt>
+										<dd>대한민국 토탈라이프케어서비스의 새로운 기준 대명아임레디.</dd>
+										<dd><a href="//daemyungimready.com/main/gate/index.do" target="blank"><img src="/img/front/common/layout/btn_fms_go.gif" alt="사이트 바로가기"></a></dd>
+									</dl>
+								</div>
+							</li>
+							<!-- <li>
+								<a href="#none" class="fm">대명투어몰</a>
+								<div class="view">
+									<span class="thum"><img src="/img/front/common/layout/img_dm_tour.jpg" alt=""/></span>
+									<dl>
+										<dt>대명투어몰</dt>
+										<dd>우리가족 여행브랜드 대명투어몰.</dd>
+										<dd><a href="//www.daemyungtourmall.com/" target="blank"><img src="/img/front/common/layout/btn_fms_go.gif" alt="사이트 바로가기"/></a></dd>
+									</dl>
+								</div>
+							</li> -->
+							<li>
+								<a href="#none" class="fm">대명소노시즌</a>
+								<div class="view">
+									<span class="thum"><img src="/img/front/common/layout/img_dm_corporation.jpg" alt=""></span>
+									<dl>
+										<dt>대명소노시즌</dt>
+										<dd>미래를 만드는 기술력과 크리에이티브의 만남</dd>
+										<dd><a href="http://www.daemyungcorporation.com" target="blank"><img src="/img/front/common/layout/btn_fms_go.gif" alt="사이트 바로가기"></a></dd>
+									</dl>
+								</div>
+							</li>				
+							<!-- 
+							<li>
+								<a href="#none" class="fm">대명본웨딩</a>
+								<div class="view">
+									<span class="thum"><img src="/img/front/common/layout/img_born.gif" alt=""/></span>
+									<dl>
+										<dt>대명본웨딩</dt>
+										<dd>최상의 고객만족도를 자랑하는 대명본웨딩,<br />믿음과 신뢰를 바탕으로 고객님의 가장 행복한 순간이 영원히 간직되도록<br/>최선을 다하겠습니다.</dd>
+										<dd><a href="http://www.bornwedding.com/" target="blank"><img src="/img/front/common/layout/btn_fms_go.gif" alt="사이트 바로가기"/></a></dd>
+									</dl>
+								</div>
+							</li>
+							 -->
+						</ul>
+						<a href="#" class="close"><img src="/img/front/common/layout/btn_family_close.gif" alt="close"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+    </li>
+</ul>
